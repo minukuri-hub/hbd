@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wishes 🎂</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Dark overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+/* Content */
+.container {
+    position: relative;
+    z-index: 1;
+    margin-top: 120px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+/* Upload input */
+input {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Button */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: red;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: darkred;
+}
+
+/* Message */
+#message {
+    font-size: 22px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+    <h1>🎂 Happy Birthday 🎉</h1>
+
+    <!-- SINGLE IMAGE UPLOAD -->
+    <input type="file" accept="image/*" onchange="setBackground(event)">
+
+    <br>
+    <button onclick="showWish()">Show Wish 🎁</button>
+    <p id="message"></p>
+
+    <div class="birthday">
+        <img src="/tv-img/imgQR.png" alt="">
+    </div>
+
+
+</div>
+
+<script>
+// Set uploaded image as background
+function setBackground(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.body.style.backgroundImage = `url(${e.target.result})`;
+        }
+        reader.readAsDataURL(file);
+    }
+}
+
+
+
+// Show birthday message
+function showWish() {
+    document.getElementById("message").innerHTML =
+        "🎉 Happy Birthday Revanth! May your life be filled with happiness ❤️";
+}
+</script>
+
+</body>
+</html>
